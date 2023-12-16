@@ -1,0 +1,5 @@
+create an  environment. The packages used will be installed here as well
+    conda create -p venv python==3.8 -y
+    conda activate venv/
+
+mlproject.egg-info - built package
