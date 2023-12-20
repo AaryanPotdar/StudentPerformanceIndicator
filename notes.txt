@@ -3,3 +3,5 @@ create an  environment. The packages used will be installed here as well
     conda activate venv/
 
 mlproject.egg-info - built package
+
+Project idea:

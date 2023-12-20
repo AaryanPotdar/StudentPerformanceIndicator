@@ -1,5 +1,5 @@
 import sys 
-import logging
+from src.logger import logging
 # sys library provides variables to manipulate diff parts of python run time environment
 # exceptions for instance
 # by default in requirements.txt
@@ -24,10 +24,10 @@ class CustomExcpetion(Exception):
         return self.error_message
     
 
-# if __name__=="__main__":
+if __name__=="__main__":
 
-#     try:
-#         a = 1/0
-#     except Exception as e:
-#         logging.info("Divide by zero error")
-#         raise CustomExcpetion(e, sys)
+    try:
+        a = 1/0
+    except Exception as e:
+        logging.info("Divide by zero error")
+        raise CustomExcpetion(e, sys)
