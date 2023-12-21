@@ -3,7 +3,7 @@
 
 import os
 import sys
-from src.exception import CustomExcpetion
+from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
 
@@ -11,13 +11,17 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 #used to automatically make class variable
 
-from src.components.data_transformation import DataTrasformation, DataTransformationConfig
+from src.components.data_transformation import DataTrasformation
+from src.components.data_transformation import DataTransformationConfig
+
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import ModelTrainer
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path: str = os.path.join('artifact', 'train.csv')
-    test_data_path: str = os.path.join('artifact', 'test.csv')
-    raw_data_path: str = os.path.join('artifact', 'data.csv')
+    train_data_path: str = os.path.join('artifacts', 'train.csv')
+    test_data_path: str = os.path.join('artifacts', 'test.csv')
+    raw_data_path: str = os.path.join('artifacts', 'data.csv')
 
 class DataIngestion:
     #if other fucntions inside clss, use constructor method
@@ -49,7 +53,7 @@ class DataIngestion:
             )
 
         except Exception as e:
-            raise CustomExcpetion(e, sys)
+            raise CustomException(e, sys)
         
 if __name__ == "__main__":
     obj = DataIngestion()
@@ -57,4 +61,8 @@ if __name__ == "__main__":
     # artifact folder created and logs updated
 
     data_tranformation = DataTrasformation()
-    data_tranformation.initiate_data_transformation(train_data, test_data)
+    train_arr,test_arr,_ = data_tranformation.initiate_data_transformation(train_data, test_data)
+
+    modeltrainer = ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr=train_arr, test_arr=test_arr)) # prints r2_score
+

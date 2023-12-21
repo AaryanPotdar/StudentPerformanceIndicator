@@ -11,7 +11,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 # StandardScaler is used to bring all the values in a range and OneHotEncoder is used for forming new column for categorical vaules
 
-from src.exception import CustomExcpetion
+from src.exception import CustomException
 from src.logger import logging
 
 from src.utils import save_object
@@ -72,7 +72,7 @@ class DataTrasformation:
             return preprocessor
 
         except Exception as e:
-            raise CustomExcpetion(e, sys)
+            raise CustomException(e, sys)
         
 
     def initiate_data_transformation(self, train_path, test_path):
