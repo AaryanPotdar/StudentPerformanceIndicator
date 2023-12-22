@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 #used to automatically make class variable
 
-from src.components.data_transformation import DataTrasformation
+from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
 
 from src.components.model_trainer import ModelTrainerConfig
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     train_data,test_data = obj.initiate_data_ingestion()
     # artifact folder created and logs updated
 
-    data_tranformation = DataTrasformation()
+    data_tranformation = DataTransformation()
     train_arr,test_arr,_ = data_tranformation.initiate_data_transformation(train_data, test_data)
 
     modeltrainer = ModelTrainer()

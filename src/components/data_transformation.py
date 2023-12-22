@@ -20,7 +20,7 @@ from src.utils import save_object
 class DataTransformationConfig:
     preprocessor_obj_file_path = os.path.join('artifacts', "preprocessor.pkl")
 
-class DataTrasformation:
+class DataTransformation:
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
@@ -43,7 +43,7 @@ class DataTrasformation:
             num_pipeline = Pipeline(
                 steps = [
                     ("imputer", SimpleImputer(strategy="median")), # handling missing values
-                    ("scaler", StandardScaler(with_mean=False))
+                    ("scaler", StandardScaler())
                 ]
             )
             
@@ -122,4 +122,4 @@ class DataTrasformation:
             )
 
         except Exception as e:
-            raise CustomExcpetion(e, sys)
+            raise CustomException(e, sys)
