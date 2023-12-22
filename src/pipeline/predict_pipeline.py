@@ -1,8 +1,7 @@
 import sys
+import os
 import pandas as pd
-import numpy as np
 from src.exception import CustomException
-from src.logger import logging
 from src.utils import load_object
 
 class PredictPipeline:
@@ -11,14 +10,14 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            model_path = 'artifacts/model.pkl'
-            preprocessor_path = 'artifacts/preprocessor.pkl'
-
+            model_path = os.path.join("artifacts","model.pkl")
+            preprocessor_path = os.path.join('artifacts','preprocessor.pkl')
+            print("### Before loading ###")
             model = load_object(file_path=model_path)   # function to load the pickle file of the trained model
             preprocessor = load_object(file_path=preprocessor_path)
-
+            print("### After loading ###")
             data_scaled = preprocessor.transform(features)
-
+            print(data_scaled) #
             preds = model.predict(data_scaled)
 
             return preds

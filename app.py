@@ -36,11 +36,13 @@ def predict_datapoint():
         print("Before Prediction")
 
         predict_pipeline = PredictPipeline()
+        print("Mid prediction")
+
         results = predict_pipeline.predict(pred_df)
 
         print("after prediction")
 
-        return render_template('home.html', results=results[0]) # note: output will be in a list format
+        return render_template('home.html', results=round(results[0],2)) # note: output will be in a list format
     
 
 

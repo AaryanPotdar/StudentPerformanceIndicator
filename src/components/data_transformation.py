@@ -55,7 +55,7 @@ class DataTransformation:
             cat_pipeline = Pipeline( # need to do OneHotEcnoding
                 steps = [
                     ("imputer", SimpleImputer(strategy="most_frequent")), #replacing missing value with mode
-                    ("encoder", OneHotEncoder()),
+                    ("encoder", OneHotEncoder(handle_unknown='ignore')),
                     ("scaler", StandardScaler(with_mean=False))
                 ]
             )
