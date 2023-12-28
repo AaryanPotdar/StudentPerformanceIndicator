@@ -13,11 +13,11 @@ The Student Performance Indicator is a machine learning application that predict
 ## Installation
 Clone the repository and install the required packages:
 
-\```bash
+```bash
 git clone `https://github.com/AaryanPotdar/StudentPerformanceIndicator.git`
 cd mlproject
 pip install -r requirements.txt
-\```
+```
 
 ## Dependencies
 - Pandas
@@ -33,9 +33,9 @@ pip install -r requirements.txt
 ## Usage
 To run the application, execute:
 
-\```bash
+```bash
 python app.py
-\```
+```
 
 Navigate to the hosted address on a web browser to interact with the application.
 
